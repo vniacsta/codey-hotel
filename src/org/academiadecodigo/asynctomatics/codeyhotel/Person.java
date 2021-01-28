@@ -16,6 +16,7 @@ public class Person {
     public void requestRooms() {
         // ask the hotel if there's an available room
         if (codeyHotel.checkVacancy()) {
+            // if there is an available room please check-in and then check-out
             codeyHotel.checkIn(name);
             codeyHotel.checkOut(name);
         }
