@@ -18,8 +18,11 @@ public class Person {
         if (codeyHotel.checkVacancy()) {
             // if there is an available room please check-in and then check-out
             codeyHotel.checkIn(name);
-            codeyHotel.checkOut(name);
         }
+    }
+
+    public void requestCheckOut() {
+        codeyHotel.checkOut(name);
     }
 
     // setter to give access to the hotel

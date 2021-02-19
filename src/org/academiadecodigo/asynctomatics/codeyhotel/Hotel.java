@@ -4,8 +4,9 @@ public class Hotel {
 
     // hotel has to have access to the rooms
     private Room[] rooms;
-    // field to store the index of my objects room
+    // fields
     private int idReservedRoom;
+    private int roomNumber;
 
     // creating my Hotel constructor with my array of rooms
     public Hotel() {
@@ -36,15 +37,21 @@ public class Hotel {
     public void checkIn(String name) {
         // save the id of my reserved room and set that room to occupied
         rooms[idReservedRoom].setVacancy(false);
-        int roomNumber = rooms[idReservedRoom].getId();
+        roomNumber = rooms[idReservedRoom].getId();
         System.out.println("Welcome to our hotel, " + name + ". Your room is number " + roomNumber +
                 ".");
     }
 
     public void checkOut(String name) {
+        // only call check out method if there is vacancy
+        if (roomNumber == 0) {
+            System.out.println("Sorry! There is no reservation in your name.");
+            return;
+        }
         // check out that room and set it to available again
         rooms[idReservedRoom].setVacancy(true);
-        System.out.println(name + ", I hope you enjoyed your stay. Have a nice day.");
+        System.out.println(name + ", I hope you enjoyed your stay in room " + roomNumber +
+                ". Have a nice day.");
     }
 }
 
